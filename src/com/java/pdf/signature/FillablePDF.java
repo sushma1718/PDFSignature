@@ -48,7 +48,7 @@ public class FillablePDF {
 		general.addHeader(doc, page, contentStream);
 		addFillableTextField(doc, page, contentStream, 400);
 		addSignatureField(doc, page, contentStream);
-		addpermissions(doc);
+		addpermissionswithPassword(doc);
 		contentStream.close();
 		doc.addPage(page);
 		doc.save("D:/pd/fillableForm.pdf");
@@ -148,6 +148,17 @@ public class FillablePDF {
 		permission.setCanExtractContent(false);
 
 		StandardProtectionPolicy policy = new StandardProtectionPolicy("", "", permission);
+		document.protect(policy);
+		return document;
+	}
+	
+	static PDDocument addpermissionswithPassword(PDDocument document) throws IOException{
+		AccessPermission permission = new AccessPermission();
+		permission.setCanPrint(false);
+		permission.setCanExtractContent(false);
+
+		StandardProtectionPolicy policy = new StandardProtectionPolicy("ownerpdf", "userpdf", permission);
+
 		document.protect(policy);
 		return document;
 	}
