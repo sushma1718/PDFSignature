@@ -12,7 +12,7 @@ import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.PDResources;
-import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.common.PDRectangle; 
 import org.apache.pdfbox.pdmodel.encryption.AccessPermission;
 import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
 import org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy;
@@ -26,7 +26,8 @@ import org.apache.pdfbox.pdmodel.interactive.annotation.PDAppearanceDictionary;
 import org.apache.pdfbox.pdmodel.interactive.annotation.PDAppearanceStream;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDSignatureField;
-import org.apache.pdfbox.pdmodel.interactive.form.PDTextField; 
+import org.apache.pdfbox.pdmodel.interactive.form.PDTextField;
+import org.xml.sax.SAXException; 
 
 public class FillablePDF {
 	
@@ -39,7 +40,7 @@ public class FillablePDF {
 	int normalFontSize = 12;
 	int smallFontSize = 10;
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, SAXException {
 		PDDocument doc = new PDDocument();
 		PDPage page = new PDPage( );
 		PDPageContentStream contentStream = new PDPageContentStream(doc, page);
@@ -53,6 +54,7 @@ public class FillablePDF {
 		doc.addPage(page);
 		doc.save("D:/pd/fillableForm.pdf");
 		doc.close(); 
+		DocxToHtml html = new DocxToHtml(); 
 	}
 	
 	static PDDocument addFillableTextField(PDDocument document, PDPage page, PDPageContentStream contentStream, int marginTop) throws IOException{

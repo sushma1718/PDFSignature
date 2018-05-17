@@ -13,6 +13,32 @@
 			<artifactId>pdfbox</artifactId>
 			<version>2.0.4</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/org.apache.poi.xwpf.converter.xhtml -->
+<dependency>
+    <groupId>fr.opensagres.xdocreport</groupId>
+    <artifactId>org.apache.poi.xwpf.converter.xhtml</artifactId>
+    <version>1.0.5</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/org.apache.poi.xwpf.converter.core-gae -->
+<dependency>
+    <groupId>fr.opensagres.xdocreport</groupId>
+    <artifactId>org.apache.poi.xwpf.converter.core-gae</artifactId>
+    <version>1.0.5</version>
+</dependency>
+
+		 <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi</artifactId>
+        <version>3.13</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>3.13</version>
+    </dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.pdfbox/fontbox -->
 		<dependency>
@@ -28,6 +54,14 @@
 			<version>2.0.4</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.tika/tika-parsers -->
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-parsers</artifactId>
+			<version>1.17</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
