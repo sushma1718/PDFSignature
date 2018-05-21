@@ -49,7 +49,7 @@ public class FillablePDF {
 		general.addHeader(doc, page, contentStream);
 		addFillableTextField(doc, page, contentStream, 400);
 		addSignatureField(doc, page, contentStream);
-		addpermissionswithPassword(doc);
+		//addpermissionswithPassword(doc);
 		contentStream.close();
 		doc.addPage(page);
 		doc.save("D:/pd/fillableForm.pdf");
@@ -76,7 +76,7 @@ public class FillablePDF {
         form.getFields().add(textField);
 
         PDAnnotationWidget widget = textField.getWidgets().get(0);
-        PDRectangle rect = new PDRectangle(50, 550, 200, 20);
+        PDRectangle rect = new PDRectangle(50, 550, 200, 200);
         widget.setRectangle(rect);
         widget.setPage(page);
 
