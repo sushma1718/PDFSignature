@@ -24,7 +24,7 @@ public class getStringLocation {
 
 	}
 
-	static void printSubwords(PDDocument document, String searchTerm) throws IOException {
+	static String printSubwords(PDDocument document, String searchTerm) throws IOException {
 		System.out.printf("* Looking for '%s'\n", searchTerm);
 		for (int page = 1; page <= document.getNumberOfPages(); page++) {
 			List<TextPositionSequence> hits = findSubwords(document, page, searchTerm);
@@ -33,8 +33,10 @@ public class getStringLocation {
 				System.out.printf("  Page %s at %s, %s with width %s and last letter '%s' at %s, %s\n", page,
 						hit.getX(), hit.getY(), hit.getWidth(), lastPosition.getUnicode(), lastPosition.getXDirAdj(),
 						lastPosition.getYDirAdj());
-			}
+				return ( page+";;"+ hit.getX()+";;"+ hit.getY());
+			} 
 		}
+		return "";
 	}
 
 	static List<TextPositionSequence> findSubwords(PDDocument document, int page, String searchTerm) throws IOException {

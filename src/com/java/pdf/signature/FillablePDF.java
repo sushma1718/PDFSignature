@@ -47,7 +47,7 @@ public class FillablePDF {
 		GeneralMethods general = new GeneralMethods();
 		general.addLogo(doc, page, contentStream);
 		general.addHeader(doc, page, contentStream);
-		addFillableTextField(doc, page, contentStream, 400);
+		addFillableTextField(doc, page, contentStream, 50, 500);
 		addSignatureField(doc, page, contentStream);
 		//addpermissionswithPassword(doc);
 		contentStream.close();
@@ -57,7 +57,7 @@ public class FillablePDF {
 		DocxToHtml html = new DocxToHtml(); 
 	}
 	
-	static PDDocument addFillableTextField(PDDocument document, PDPage page, PDPageContentStream contentStream, int marginTop) throws IOException{
+	static PDDocument addFillableTextField(PDDocument document, PDPage page, PDPageContentStream contentStream, float x, float y) throws IOException{
 	 
 		PDAcroForm form = new PDAcroForm(document);
 		document.getDocumentCatalog().setAcroForm(form);
@@ -76,7 +76,7 @@ public class FillablePDF {
         form.getFields().add(textField);
 
         PDAnnotationWidget widget = textField.getWidgets().get(0);
-        PDRectangle rect = new PDRectangle(50, 550, 200, 200);
+        PDRectangle rect = new PDRectangle(x, y, 200, 25);
         widget.setRectangle(rect);
         widget.setPage(page);
 
@@ -88,7 +88,7 @@ public class FillablePDF {
         widget.setPrinted(true);
 
         page.getAnnotations().add(widget); 
-        textField.setValue("Sample Field");
+        textField.setValue("Name");
 		return document;
 	}
 	 
